@@ -1,0 +1,104 @@
+<html ng-app="nablerApp">
+    <head lang="en">
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+
+        <title>N-Abler Internal Dashboard </title>
+        <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/slate.css"/> -->
+        <link rel="stylesheet" type="text/css" href="/css/cerulean.css"/>
+        <!-- <link rel="stylesheet" type="text/css" href="/css/cosmo.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/cyborg.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/darkly.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/flatly.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/journal.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/lumen.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/paper.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/readable.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/sandstone.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/simplex.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/spacelab.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/superhero.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/united.css"/> -->
+        <!-- <link rel="stylesheet" type="text/css" href="/css/yeti.css"/> -->
+
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="/css/sidebar.css" />
+        <link rel="stylesheet" type="text/css" href="/css/nabler.css" />
+        <link rel="stylesheet" type="text/css" href="/css/trNgGrid.min.css" />
+
+        <!-- Custom Fonts -->
+        <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+        <!-- <script type="text/javascript" src="/release/jquery.min.js"></script> -->
+        <script type="text/javascript" src="/release/angular.js"></script>
+        <!-- <script type="text/javascript" src='/release/angular-ui-router.min.js'></script> -->
+        <script type="text/javascript" src='/release/ui-bootstrap-tpls-0.11.2.js'></script>
+        <script src="/release/angular-route.js"></script>
+        <script src="/release/trNgGrid.min.js"></script>
+        <!-- <script src="/release/ui-bootstrap.js"></script> -->
+
+        <script type="text/javascript" src="app.js"></script>
+
+        <!-- Services -->
+        <script type="text/javascript" src="/service/AppServices.js"></script>
+        <script type="text/javascript" src="/service/admin/RoleService.js"></script>
+
+        <!-- Controllers -->
+        <script type="text/javascript" src="/controllers/AuthenticationController.js"></script>
+        <script type="text/javascript" src="/controllers/SidebarController.js"></script>
+        <script type="text/javascript" src="/controllers/OnDeckController.js"></script>
+        <script type="text/javascript" src="/controllers/admin/RoleController.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                <a class="navbar-brand" href="#">NorthBrook Exchange</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="border-top-right-radius: 6px;">
+        <div class="panel">
+            <div class="row">
+                <div class="col-sm-3 col-md-2 sidebar" ng-controller="SidebarController" ng-show="isAuthenticated()" style=""> 
+                    <ul class="nav nav-sidebar list-group">
+
+                        <li class="list-group-item">
+                            <a href="#/home">
+                                <i class="fa fa-home fa-fw"></i>  Home
+                            </a>
+                        </li>
+
+
+                        <li class="list-group-item">
+                            <a href="#/application/ondeckv2">
+                                <i class="fa fa-users fa-fw"></i> Small Business
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div ng-view></div>
+        
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+.gridStyle {
+    height: 250px;
+}
+.ngViewport {
+    overflow: overlay !important;
+}
+.ng-table th.text-right {
+    text-align: right;
+}
+.ng-table th.text-left {
+    text-align: left;
+}
+
+form .form-divide {
+	margin-left: 10px;
+	margin-right: 10px;
+    border-top: 1px dashed #ddd;
+}
+
+.navbar-header {
+	background-image: url('/images/NBLogo.JPG') !important;
+	background-size: 45px 45px;
+	background-repeat: no-repeat;
+	background-position-y: 3px;
+	padding-left: 55px;
+}
+

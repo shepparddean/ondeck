@@ -1,0 +1,191 @@
+<div style="padding-left: 0; padding-top: 20px;">
+
+
+	<div class="col-sm-6">
+		<fieldset>
+			<legend>Company</legend>
+
+			<div class="form-group">
+				<label for="businessName" class="col-sm-4 control-label input-sm" style="text-align: left">Registered Name</label>
+				<div class="col-sm-8">
+					<input
+					type="text"
+					class="form-control input-sm"
+					id="businessName",
+					name="businessName",
+					placeholder="Name of the business"
+					required
+					popover="Please enter the name of the business."
+					popover-title="Business Name"
+					popover-trigger="focus"
+					popover-placement="top"
+					ng-model="formData.businessName">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="businesAs" class="col-sm-4 control-label input-sm" style="text-align: left">Doing Business As</label>
+				<div class="col-sm-8">
+					<input type="text"
+					class="form-control input-sm"
+					id="businessAs"
+					placeholder="If different from legal name"
+					ng-model="formData.businessAs">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="code" class="col-sm-4 control-label input-sm" style="text-align: left;">Business Description</label>
+				<div class="col-sm-8">
+					<textarea
+					rows=6
+					class="form-control input-sm"
+					id="businessNature"
+					placeholder="Business Description"
+					ng-model="formData.description"
+					>
+					</textarea>
+				</div>
+			</div>
+
+		</fieldset>
+	</div>
+
+
+	<div class="col-sm-6">
+		<fieldset>
+			<legend>Address</legend>
+			<div class="form-group">
+				<label for="address1" class="col-sm-4 control-label input-sm" style="text-align: left">Line 1</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="address1"  placeholder="Line 1 of Address" ng-model="formData.address1">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="address2" class="col-sm-4 control-label input-sm" style="text-align: left">Line 2</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="address2"  placeholder="Line 2 of Address" ng-model="formData.address2">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="addressCity" class="col-sm-4 control-label input-sm" style="text-align: left">City / Province</label>
+				<div class="col-sm-4">
+					<input type="text" class="form-control input-sm" id="addressCity"  placeholder="City" ng-model="formData.addressCity">
+				</div>
+				<div class="col-sm-4">
+					<select class="form-control input-sm" id="addressProvince" ng-model="formData.addressProvince">
+						<option value="AB">Alberta</option>
+						<option value="BC">British Columbia</option>
+						<option value="PEI">P.E.I</option>
+						<option value="NL">Newfoundland</option>
+						<option value="NB">New Brunswick</option>
+						<option value="MAN">Manitoba</option>
+						<option value="SA">Saskatchewan</option>
+						<option value="NS">Nova Scotia</option>
+						<option value="ON">Ontario</option>
+						<option value="QC">Quebec</option>
+						<option value="NV">Nunavut</option>
+						<option value="NWT">N.W.T.</option>
+						<option value="YK">Yukon</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="addressPostalCode" class="col-sm-4 control-label input-sm" style="text-align: left">Postal Code</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="addressPostalCode"  placeholder="Postal Code" ng-model="formData.addressPostalCode">
+				</div>
+			</div>
+			<div class="form-group" >
+				<label for="businessPhone" class="col-sm-4 control-label input-sm" style="text-align: left">Telephone # / Contact </label>
+				<div class="col-sm-4">
+					<input type="tel" class="form-control input-sm" id="businessPhone"  placeholder="Number" ng-model="formData.businessPhone">
+				</div>
+				<!-- </div> -->
+				<!-- <div class="form-group"> -->
+				<!-- <label for="businessContactName" class="col-sm-5 control-label input-sm" style="text-align: left">Contact Name</label> -->
+				<div class="col-sm-4">
+					<input type="text" class="form-control input-sm" id="businessContactName"  placeholder="Name" ng-model="formData.businessContactName">
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+	<div class="col-sm-6"  style="padding-top:10px;">
+		<fieldset>
+			<legend>Details</legend>
+
+			<div class="form-group">
+				<label for="formOfBusiness" class="col-sm-4 control-label input-sm" style="text-align: left">Form of Business</label>
+				<div class="col-sm-8">
+					<select id="formOfBusiness" class="form-control input-sm" ng-model="formData.formOfBusiness">
+						<option value="RP">Registered Partnership</option>
+						<option value="SP">Sole Proprietorship</option>
+						<option value="CORP">Corporation</option>
+						<option value="UBFS">Unregistered BFS</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="businessInceptionDate" class="col-sm-4 control-label input-sm" title="Inception Date of Applicants Business" style="text-align: left">Inception Date/Months</label>
+				<div class="col-sm-5">
+					<input type="date" class="form-control input-sm" id="businessInceptionDate"  placeholder="Business Inception Date" ng-model="formData.businessInceptionDate">
+				</div>
+				<div class="col-sm-3">
+					<input type="number" class="form-control input-sm" id="businessInceptionMonths" readonly placeholder="Months" ng-model="formData.businessInceptionMonths">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="businessTaxId" class="col-sm-4 control-label input-sm" style="text-align: left">Business Tax Number</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="businessTaxId"  placeholder="Business Tax Number" ng-model="formData.businessTaxId">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="businessSicCode" class="col-sm-4 control-label input-sm" style="text-align: left">SIC Code</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="businessSicCode"  placeholder="SIC Code" ng-model="formData.businessSicCode">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="businessNaicsCode" class="col-sm-4 control-label input-sm" style="text-align: left">NAICS Code <a title="Click here to lookup your NAICS Code" href="#">(Look Up)</a></label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="businessNaicsCode"  placeholder="Business NAICS Code" ng-model="formData.businessNaicsCode">
+				</div>
+			</div>
+
+
+		</fieldset>
+	</div>
+
+	<div class="col-sm-6" style="padding-top:10px;">
+		<fieldset>
+			<legend>Loan Details</legend>
+
+			<div class="form-group">
+				<label for="desiredLoanAmount" class="col-sm-4 control-label input-sm" style="text-align: left">Requested Loan $</label>
+				<div class="col-sm-8">
+					<div class="input-group">
+						<div class="input-group-addon input-sm">$</div>
+						<input type="text" class="form-control input-sm" id="desiredLoanAmount"  placeholder="" ng-model="formData.desiredLoanAmount">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="desiredLoanTerm"  class="col-sm-4 control-label input-sm" style="text-align: left">Requested Loan Term</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control input-sm" id="loanTerm"  placeholder="" ng-model="formData.loanTerm">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="businessLoanPurpose" class="col-sm-4 control-label input-sm" style="text-align: left">Purpose of Loan</label>
+				<div class="col-sm-8">
+					<textarea rows=6 class="form-control input-sm" id="businessLoanPurpose"  placeholder="Purpose of Loan" ng-model="formData.businessLoanPurpose">
+					</textarea>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+
+	<div>{{formData}}</div>
+</div>

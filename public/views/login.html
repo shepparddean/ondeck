@@ -1,0 +1,60 @@
+<div class="mainbox col-md-6 col-md-offset-3 " style="padding-top: 25px;" >
+    <div class="panel panel-primary " >
+        <div class="panel-heading text-center" >
+            <div class="panel-title"><i class="fa fa-user fa-5x"></i></div>
+
+        </div>
+        <div style="padding-top:30px" class="panel-body" >
+            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+            <!--
+            The login form
+            -->
+            <form id="loginform" name="loginform" class="form-horizontal" role="form"  ng-submit="submitForm(loginform.$valid)" ng-controller="AuthenticationController" novalidate>
+
+                <div class="alert alert-danger col-sm-8 col-sm-offset-2" role="alert" ng-show="login.error">
+                    <h5>{{ login.errormessage }}</h5>
+                </div>
+
+
+                <div style="margin-bottom: 25px" class="input-group col-sm-8 col-sm-offset-2" ng-class="{'has-error': loginform.email.$invalid }">
+                    <span class="input-group-addon">
+                    <i class="glyphicon glyphicon-user"></i>
+                    </span>
+                    <input id="login-email" type="text" class="form-control" name="email" placeholder="username or email" ng-model="login.email" required/>
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group col-sm-8 col-sm-offset-2" ng-class="{'has-error': loginform.password.$invalid }">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input id="login-password" type="password" class="form-control" name="password" placeholder="password" ng-model="login.password" required>
+                </div>
+
+                <div style="margin-bottom: 25px" class="input-group col-sm-8 col-xs-8 col-sm-offset-2 col-xs-offset-2" >
+                    <div class="col-sm-8">
+                        <p ng-show="loginform.email.$invalid && !loginform.email.$pristine" class="help-block">Username is an email address.</p>
+                    </div>
+
+                    <div class="col-sm-4" style="text-align: right; padding-right: 0;">
+                        <button type="submit"  class="btn btn-primary"  ng-disabled="loginform.$invalid">Login</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="panel-footer" style="height: 50px;">
+            <div class="col-md-6 col-xs-6" >
+                <a id="btn-forget" href="#" class="btn btn-link" style="width:100%"><i class="fa fa-lock fa-fw "> </i> Forgot Password?</a>
+            </div>
+            <div class="col-md-6 col-xs-6"  >
+                <a id="btn-forget" href="#" class="btn btn-link" style="width: 100%"><i class="fa fa-user fa-fw  text-center"></i> Sign Up</a>
+            </div>
+
+            <!-- <div class="col-md-1 col-md-offset-2 " style="border:1px solid black;"> -->
+            <!-- -->
+            <!-- </div> -->
+            <!-- <div class="col-md-4">&nbsp;</div> -->
+            <!-- <div class="col-md-4" style="border:1px solid black;"> -->
+            <!--  -->
+            <!-- </div> -->
+        </div>
+    </div>
+</div>
