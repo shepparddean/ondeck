@@ -33,9 +33,14 @@ appServices.factory('FormService', function($http) {
 
     return  {
 
-
         save: function(data) {
-            console.log('Please save my data', data);
+            if (data.SBApplicationId == undefined || data.SBApplicationId == '') {
+                $http.post( '/api/applications', data )
+                .success(function(data) {
+                    console.log('Success: Saved', data);
+                });
+            }            
+                        
         },
 
         attachDocument: function(data) {

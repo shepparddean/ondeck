@@ -30,7 +30,8 @@ app.use(bodyParser.json({
 
 
 // routes ======================================================================
-
+//load the routes
+require('./routes/applications')(app);
 
 // launch ======================================================================
 app.listen(port);

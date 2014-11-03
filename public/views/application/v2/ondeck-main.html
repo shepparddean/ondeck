@@ -1,7 +1,7 @@
 <div>
 	<div class="col-sm-10 col-sm-offset-2">
 
-				<form class="form-horizontal" ng-controller="OnDeckController" id="applicationForm" name="applicationForm" role="form">
+				<form class="form-horizontal" ng-controller="OnDeckController" id="applicationForm" name="applicationForm" role="form" ng-submit="processForm()" novalidate>
 					<tabset>
 
 						<tab popover="Enter the details pertaining to the buisness." popover-trigger="mouseenter">
@@ -33,6 +33,11 @@
 						</tab>
 
 					</tabset>
+					<div class="col-sm-2 col-sm-offset-10 text-right" >
+						<button type="submit" class="btn btn-success btn-sm">
+							<span class="glyphicon glyphicon-flash"></span> Next
+						</button>
+					</div>
 
 				</form>
 			</div>

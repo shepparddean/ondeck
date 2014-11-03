@@ -6,8 +6,10 @@
 			<legend>Company</legend>
 
 			<div class="form-group">
+
 				<label for="businessName" class="col-sm-4 control-label input-sm" style="text-align: left">Registered Name</label>
 				<div class="col-sm-8">
+					<input type="hidden" ng-model="formData.SBApplicationId">
 					<input
 					type="text"
 					class="form-control input-sm"
@@ -24,13 +26,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="businesAs" class="col-sm-4 control-label input-sm" style="text-align: left">Doing Business As</label>
+				<label for="doingBusinesAs" class="col-sm-4 control-label input-sm" style="text-align: left">Doing Business As</label>
 				<div class="col-sm-8">
 					<input type="text"
 					class="form-control input-sm"
-					id="businessAs"
+					id="doingBusinessAs"
 					placeholder="If different from legal name"
-					ng-model="formData.businessAs">
+					ng-model="formData.doingBusinessAs">
 				</div>
 			</div>
 
@@ -68,12 +70,12 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="addressCity" class="col-sm-4 control-label input-sm" style="text-align: left">City / Province</label>
+				<label for="city" class="col-sm-4 control-label input-sm" style="text-align: left">City / Province</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="addressCity"  placeholder="City" ng-model="formData.addressCity">
+					<input type="text" class="form-control input-sm" id="city"  placeholder="City" ng-model="formData.city">
 				</div>
 				<div class="col-sm-4">
-					<select class="form-control input-sm" id="addressProvince" ng-model="formData.addressProvince">
+					<select class="form-control input-sm" id="provinceCode" ng-model="formData.provinceCode">
 						<option value="AB">Alberta</option>
 						<option value="BC">British Columbia</option>
 						<option value="PEI">P.E.I</option>
@@ -91,9 +93,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="addressPostalCode" class="col-sm-4 control-label input-sm" style="text-align: left">Postal Code</label>
+				<label for="postalCode" class="col-sm-4 control-label input-sm" style="text-align: left">Postal Code</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control input-sm" id="addressPostalCode"  placeholder="Postal Code" ng-model="formData.addressPostalCode">
+					<input type="text" class="form-control input-sm" id="postalCode"  placeholder="Postal Code" ng-model="formData.postalCode">
 				</div>
 			</div>
 			<div class="form-group" >
@@ -136,9 +138,9 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="businessTaxId" class="col-sm-4 control-label input-sm" style="text-align: left">Business Tax Number</label>
+				<label for="businessTaxNumber" class="col-sm-4 control-label input-sm" style="text-align: left">Business Tax Number</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control input-sm" id="businessTaxId"  placeholder="Business Tax Number" ng-model="formData.businessTaxId">
+					<input type="text" class="form-control input-sm" id="businessTaxNumber"  placeholder="Business Tax Number" ng-model="formData.businessTaxNumber">
 				</div>
 			</div>
 			<div class="form-group">
@@ -187,5 +189,4 @@
 		</fieldset>
 	</div>
 
-	<div>{{formData}}</div>
 </div>
