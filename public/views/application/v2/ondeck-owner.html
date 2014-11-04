@@ -1,171 +1,178 @@
 <!-- ############################################################### -->
 <!-- Owner Information -->
 <!-- ############################################################### -->
-<div style="padding-left:0; padding-top: 20px;">
-	<div class="alert alert-info" role="alert">
-		<p>Please note that while On Deck does not require personal guarantees for its loans, a review of the Business Owners personal credit is a part of the loan adjudication process. By Submitting this application the applicant(s) agree to allow "<i>xxxxxxxxxxx</i>"
-		</p>
-	</div>
+<div  ng-controller="OwnerController">
+	<div style="padding-left:0; padding-top: 20px;" >
+		<div class="alert alert-info" role="alert">
+			<p>Please note that while On Deck does not require personal guarantees for its loans, a review of the Business Owners personal credit is a part of the loan adjudication process. By Submitting this application the applicant(s) agree to allow "<i>xxxxxxxxxxx</i>"
+			</p>
+		</div>
 
 
-	<div class="col-sm-6">
-		<fieldset>
-			<legend>Owner Details</legend>
-			<div class="form-group">
-				<label for="onwerName"  class="col-sm-4 control-label input-sm" style="text-align: left">Name</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="ownerFirstName"  placeholder="First Name">
-				</div>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="ownerLastName"  placeholder="Last Name">
-				</div>
-			</div>
-
-			<div class="form-group">
-				<label for="ownerEmail"  class="col-sm-4 control-label input-sm" style="text-align: left">Email</label>
-				<div class="col-sm-8">
-					<div class="input-group">
-						<div class="input-group-addon input-sm">@</div>
-						<input type="text" class="form-control input-sm" id="ownerEmail"  placeholder="Owners Email">
+		<div class="col-sm-6">
+			<fieldset>
+				<legend>Owner Details</legend>
+				<div class="form-group">
+					<label for="onwerName"  class="col-sm-4 control-label input-sm" style="text-align: left">Name</label>
+					<div class="col-sm-4">
+						<input 	type="text"
+						class="form-control input-sm"
+						id="ownerFirstName"
+						placeholder="First Name"
+						ng-model="ownerData.firstName">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-sm" id="ownerLastName"  placeholder="Last Name" ng-model="ownerData.lastName">
 					</div>
 				</div>
-			</div>
 
-			<div class="form-group">
-				<label for="ownerPercentage"  class="col-sm-4 control-label input-sm" style="text-align: left">Ownership / Score</label>
-				<div class="col-sm-4">
-					<div class="input-group">
-						<div class="input-group-addon input-sm">%</div>
-						<input type="text" class="form-control input-sm" id="ownerPercentage"  placeholder="0">
+				<div class="form-group">
+					<label for="ownerEmail"  class="col-sm-4 control-label input-sm" style="text-align: left">Email</label>
+					<div class="col-sm-8">
+						<div class="input-group">
+							<div class="input-group-addon input-sm">@</div>
+							<input type="text" class="form-control input-sm" id="ownerEmail"  placeholder="Owners Email" ng-model="ownerData.email">
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="ownerCreditScore"  placeholder="Credit Score">
-				</div>
-			</div>
 
-
-			<div class="form-group">
-				<label for="ownerDateofBirth"  class="col-sm-4 control-label input-sm" style="text-align: left">Birth Date / SIN</label>
-				<div class="col-sm-4">
-					<input type="date" class="form-control input-sm" id="ownerDateOfBirth"  placeholder="Date of Birth">
-				</div>
-				<div class="col-sm-4">
-					<div class="input-group">
-						<div class="input-group-addon input-sm">#</div>
-						<input type="text" class="form-control input-sm" id="ownerSin"  placeholder="Social Insurance Number">
+				<div class="form-group">
+					<label for="ownerPercentage"  class="col-sm-4 control-label input-sm" style="text-align: left">Ownership / Score</label>
+					<div class="col-sm-4">
+						<div class="input-group">
+							<div class="input-group-addon input-sm">%</div>
+							<input type="text" class="form-control input-sm" id="ownerPercentage"  placeholder="0" ng-model="ownerData.percentage">
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-sm" id="ownerCreditScore"  placeholder="Credit Score" ng-model="ownerData.creditScore">
 					</div>
 				</div>
-			</div>
 
-			<div class="form-group">
-				<label for="ownerAnnualIncome"  class="col-sm-4 control-label input-sm" style="text-align: left">Annual Income</label>
-				<div class="col-sm-8">
-					<div class="input-group">
-						<div class="input-group-addon input-sm">$</div>
-						<input type="text" class="form-control input-sm" id="ownerAnnualIncome"  placeholder="0.00">
+
+				<div class="form-group">
+					<label for="ownerDateofBirth"  class="col-sm-4 control-label input-sm" style="text-align: left">Birth Date / SIN</label>
+					<div class="col-sm-4">
+						<input type="date" class="form-control input-sm" id="ownerDateOfBirth"  placeholder="Date of Birth" ng-model="ownerData.dateOfBirth">
+					</div>
+					<div class="col-sm-4">
+						<div class="input-group">
+							<div class="input-group-addon input-sm">#</div>
+							<input type="text" class="form-control input-sm" id="ownerSin"  placeholder="Social Insurance Number" ng-model="ownerData.sin">
+						</div>
 					</div>
 				</div>
-			</div>
 
-		</fieldset>
+				<div class="form-group">
+					<label for="ownerAnnualIncome"  class="col-sm-4 control-label input-sm" style="text-align: left">Annual Income</label>
+					<div class="col-sm-8">
+						<div class="input-group">
+							<div class="input-group-addon input-sm">$</div>
+							<input type="text" class="form-control input-sm" id="ownerAnnualIncome"  placeholder="0.00" ng-model="ownerData.annualIncome">
+						</div>
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<div class="col-sm-6">
+			<fieldset>
+				<legend>Address</legend>
+				<div class="form-group">
+					<label for="ownerAddress1" class="col-sm-4 control-label input-sm" style="text-align: left">Line 1</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control input-sm" id="address1"  placeholder="Line 1 of Address" ng-model="ownerData.address1">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ownerAddress2" class="col-sm-4 control-label input-sm" style="text-align: left">Line 2</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control input-sm" id="address2"  placeholder="Line 2 of Address" ng-model="ownerData.address2">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ownerAddressCity" class="col-sm-4 control-label input-sm" style="text-align: left">City / Province</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-sm" id="addressCity"  placeholder="City" ng-model="ownerData.city">
+					</div>
+					<div class="col-sm-4">
+						<select class="form-control input-sm" id="ownerAddressProvince" ng-model="ownerData.provinceCode">
+							<option value="AB">Alberta</option>
+							<option>British Columbia</option>
+							<option>P.E.I</option>
+							<option>Newfoundland</option>
+							<option>New Brunswick</option>
+							<option>Manitoba</option>
+							<option>Saskatchewan</option>
+							<option>Nova Scotia</option>
+							<option>Ontario</option>
+							<option>Quebec</option>
+							<option>Nunavut</option>
+							<option>N.W.T.</option>
+							<option>Yukon</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ownerAddressPostalCode" class="col-sm-4 control-label input-sm" style="text-align: left">Postal Code</label>
+					<div class="col-sm-8">
+						<input type="text" class="form-control input-sm" id="addressPostalCode"  placeholder="Postal Code" ng-model="ownerData.postalCode">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="ownerHomePhone"  class="col-sm-4 control-label input-sm" style="text-align: left">Phone Numbers</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-sm" id="ownerHomePhone"  placeholder="Phone Number" ng-model="ownerData.homePhone">
+					</div>
+					<div class="col-sm-4">
+						<input type="text" class="form-control input-sm" id="ownerCellPhone"  placeholder="Cell Number" ng-model="ownerData.cellPhone">
+					</div>
+				</div>
+			</fieldset>
+		</div>
+
+
 	</div>
+	<div class="form-group">
+		<div class="col-sm-12 col-sm-offset-4" style="padding-top: 15px; padding-bottom: 10px;">
+			<button
+			type			="button"
+			class			="btn btn-primary btn-sm"
+			popover			="Click here to add a new owner to the application"
+			popover-trigger	="mouseenter"
+			ng-click		="processOwner()">Save Owner</button>
 
-	<div class="col-sm-6">
-		<fieldset>
-			<legend>Address</legend>
-			<div class="form-group">
-				<label for="ownerAddress1" class="col-sm-4 control-label input-sm" style="text-align: left">Line 1</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control input-sm" id="address1"  placeholder="Line 1 of Address">
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="ownerAddress2" class="col-sm-4 control-label input-sm" style="text-align: left">Line 2</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control input-sm" id="address2"  placeholder="Line 2 of Address">
-				</div>
-			</div>
+			<button type	="button" class="btn btn-primary btn-sm" popover="Click here to edit the selected owner" popover-trigger="mouseenter">Edit Owner</button>
 
-			<div class="form-group">
-				<label for="ownerAddressCity" class="col-sm-4 control-label input-sm" style="text-align: left">City / Province</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="addressCity"  placeholder="City">
-				</div>
-				<div class="col-sm-4">
-					<select class="form-control input-sm" id="ownerAddressProvince">
-						<option value="AB">Alberta</option>
-						<option>British Columbia</option>
-						<option>P.E.I</option>
-						<option>Newfoundland</option>
-						<option>New Brunswick</option>
-						<option>Manitoba</option>
-						<option>Saskatchewan</option>
-						<option>Nova Scotia</option>
-						<option>Ontario</option>
-						<option>Quebec</option>
-						<option>Nunavut</option>
-						<option>N.W.T.</option>
-						<option>Yukon</option>
-					</select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="ownerAddressPostalCode" class="col-sm-4 control-label input-sm" style="text-align: left">Postal Code</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control input-sm" id="addressPostalCode"  placeholder="Postal Code">
-				</div>
-			</div>
+			<button type="button" class="btn btn-danger btn-sm" popover="Click here to remove the owner from the application" popover-trigger="mouseenter">Remove Owner</button>
+		</div>
 
 
-			<div class="form-group">
-				<label for="ownerHomePhone"  class="col-sm-4 control-label input-sm" style="text-align: left">Phone Numbers</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="ownerHomePhone"  placeholder="Phone Number">
-				</div>
+		<div class="col-sm-12" >
+			<table
+				tr-ng-grid=""
+				items="owners"
+				class="table"
+				enable-filtering=false
+				enable-sorting= false
+				selection-mode="SingleRow">
+				<thead>
+					<tr>
+						<th field-name="firstName" display-name="First Name"  display-align="left"></th>
 
+						<th field-name="lastName" display-name="Last Name"  display-align="left"></th>
 
-				<div class="col-sm-4">
-					<input type="text" class="form-control input-sm" id="ownerCellPhone"  placeholder="Cell Number">
-				</div>
-			</div>
-		</fieldset>
+						<th field-name="email" display-name="Email" display-align="left"></th>
+						<th field-name="phoneNumber" display-name="Phone" display-align="left"></th>
+
+						<th field-name="ownershipPercentage" display-name="Ownership %" display-align="left"></th>
+
+						
+					</tr>
+
+				</thead>
+			</table>
+		</div>
 	</div>
-
-
-</div>
-<div class="form-group">
-	<div class="col-sm-12 col-sm-offset-4" style="padding-top: 15px; padding-bottom: 10px;">
-		<button type="button" class="btn btn-primary btn-sm" popover="Click here to add a new owner to the application" popover-trigger="mouseenter">Save Owner</button>
-		<button type="button" class="btn btn-primary btn-sm" popover="Click here to edit the selected owner" popover-trigger="mouseenter">Edit Owner</button>
-		<button type="button" class="btn btn-danger btn-sm" popover="Click here to remove the owner from the application" popover-trigger="mouseenter">Remove Owner</button>
-	</div>
-	<div class="col-sm-12" >
-		<table class="table table-bordered table-hover table-condensed ">
-			<thead>
-				<tr class="active">
-					<th data-field="select"  style="text-align: center; font-size: 14px;">Select</th>
-					<th data-field="id" style="font-size: 14px;">Owner</th>
-					<th data-field="name" style="font-size: 14px;">Email</th>
-					<th data-field="price" style="font-size: 14px;">Phone</th>
-					<th data-field="price"  style="text-align: center; font-size: 14px;">Ownership %</th>
-				</tr>
-			</thead>
-			<tr>
-				<td  style="text-align: center; font-size: 12px;"><input type="checkbox"></td>
-				<td style="font-size: 12px;">John Smith</td>
-				<td style="font-size: 12px;">jsmith@newbuz.com</td>
-				<td style="font-size: 12px;">905-510-9822</td>
-				<td  style="text-align: center; font-size: 12px;">75%</td>
-			</tr>
-			<tr>
-				<td  style="text-align: center; font-size: 12px;"><input type="checkbox"></td>
-				<td style="font-size: 12px;">Bob Scott</td>
-				<td style="font-size: 12px;">bscott@newbuz.com</td>
-				<td style="font-size: 12px;">905-510-9823</td>
-				<td  style="text-align: center; font-size: 12px;">25%</td>
-			</tr>
-		</table>
-	</div>
-
 </div>

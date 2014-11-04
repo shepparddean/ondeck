@@ -33,6 +33,8 @@ app.use(bodyParser.json({
 //load the routes
 require('./routes/applications')(app);
 
+
+
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);

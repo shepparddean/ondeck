@@ -35,6 +35,10 @@ $routeProvider.
             templateUrl: 'views/application/v2/ondeck-main.html',
             access: { requiredLogin: false}
         }).
+        when('/admin/roles', {
+            templateUrl: 'views/admin/roles.html',
+            access: {requiredLogin: false}
+        }).
         otherwise({
             redirectTo: '/home',
             access: { requiredLogin: true}
@@ -62,4 +66,5 @@ app.run(function($rootScope, $location, AuthenticationService) {
             $location.path("/login");
         }
     });
+   
 });

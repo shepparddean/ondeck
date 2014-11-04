@@ -1,7 +1,39 @@
-<div class="jumbotron col-md-10 col-md-offset-2 ">
-	<h1>N-Abler Dashboard</h1>
-	<p>
-	This area will be updated to have a contextual dashboard, providing quick access
-	to the main areas of interest for the current user.
-	</p>
+<div  ng-controller="DashboardController">
+	<div class="jumbotron col-md-10 col-md-offset-2 ">
+		<h1>Small Business Loans</h1>
+		<p>
+		This area will be updated to have a contextual dashboard, providing quick access
+		to the main areas of interest for the current user.
+		</p>
+	</div>
+	<div class="col md-10 col-md-offset-2">
+		<table
+			tr-ng-grid=""
+			items="applications"
+			class="table table-striped table-bordered table-condensed"
+			page-items="10"
+			enable-filtering=false
+			enable-sorting= true
+			selection-mode="SingleRow"
+			height="500px">
+			<thead>
+				<tr>
+					<th field-name="registeredName" display-name="Business Name"  display-align="left"></th>
+
+					<th field-name="requestedLoanTerm" display-name="Loan Term"  display-align="center"></th>
+
+					<th field-name="requestedLoanAmount" display-name="Requested Amount" display-align="left" display-format="currency"></th>
+
+					<th field-name="statusCode" display-name="Status" display-align="center"></th>
+
+					<th field-name="createdDate" display-name="Created On" display-align="center" display-format="date:'yyyy-MM-dd'"></th>
+
+					<th field-name="submitted" display-name="Submitted" display-align="left" display-format="date:'yyyy-MM-dd'"></th>
+
+
+				</tr>
+
+			</thead>
+		</table>
+	</div>
 </div>

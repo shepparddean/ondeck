@@ -131,12 +131,13 @@ function BusinessApplicant() {
 	},
 
 	this.getInceptionDate = function() {
-		return inceptionDate;
+		//console.log('Returning Inception Date ', inceptionDate.substring(0, 10));
+		return inceptionDate; 
 	},
 
 	this.setInceptionDate = function(incDate) {
-		console.log('Convert to date ', incDate);
-		inceptionDate = incDate;
+		
+		inceptionDate = new Date(incDate);
 	},
 
 	this.getBusinessTaxNumber = function() {
@@ -234,7 +235,7 @@ function BusinessApplicant() {
 
 		var _me = objectData._scope;
 		var _callback = objectData._callback;
-
+		console.log('Inception Date is ', _me.getInceptionDate());
 		//ok, obtain a connection and then continue;
 		var connection = new sql.Connection(database,
 
@@ -256,11 +257,14 @@ function BusinessApplicant() {
 				ps.input('formOfBusiness', sql.VarChar);
 				ps.input('description', sql.VarChar);
 				ps.input('inceptionDate', sql.Date);
+				ps.input('testing', sql.VarChar);
 				ps.input('businessTaxNumber', sql.VarChar);
 				ps.input('sicCode', sql.VarChar);
 				ps.input('naiscCode', sql.VarChar);
 				ps.input('addressId', sql.Int);
 				ps.input('contactName', sql.VarChar);
+
+				ps.verbose = true;
 
 
 				ps.prepare(
@@ -274,7 +278,9 @@ function BusinessApplicant() {
 					"	@landlordName, @creditCardBalance, @monthlyTransactions, @merchantCashAdvanceBalance," +
 					"	@averageBankBalance, @registeredName, @doingBusinessAs, @description, @formOfBusiness, " +
 					"	@inceptionDate, @businessTaxNumber, @sicCode, @naiscCode, @addressId, @contactName " +
-					"	) ", function(err) {
+					"	) ", 
+
+					function(err) {
 
 						if (err) {
 							console.log('BusinessApplicant.create ', err);
@@ -284,24 +290,24 @@ function BusinessApplicant() {
 
 							ps.execute({
 
-									SBApplicationId: SBApplicationId,
-									annualRevenue: _me.getAnnualRevenue(),
-									landlordPhoneNumber: _me.getLandlordPhone(),
-									landlordName: _me.getLandlordName(),
-									creditCardBalance: _me.getCreditCardBalance(),
-									monthlyTransactions: _me.getMonthlyTransactions(),
-									merchantCashAdvanceBalance: _me.getMerchantCashAdvanceBalance(),
-									averageBankBalance: _me.getAverageBankBalance(),
-									registeredName: _me.getRegisteredName(),
-									doingBusinessAs: _me.getDoingBusinessAs(),
-									description: _me.getDescription(),
-									formOfBusiness: _me.getFormOfBusiness(),
-									inceptionDate: _me.getInceptionDate(),
-									businessTaxNumber: _me.getBusinessTaxNumber(),
-									sicCode: _me.getSicCode(),
-									naiscCode: _me.getNaiscCode(),
-									addressId: _address.getId(),
-									contactName: _me.getContactName()
+									SBApplicationId				: SBApplicationId,
+									annualRevenue				: _me.getAnnualRevenue(),
+									landlordPhoneNumber			: _me.getLandlordPhone(),
+									landlordName				: _me.getLandlordName(),
+									creditCardBalance			: _me.getCreditCardBalance(),
+									monthlyTransactions			: _me.getMonthlyTransactions(),
+									merchantCashAdvanceBalance	: _me.getMerchantCashAdvanceBalance(),
+									averageBankBalance			: _me.getAverageBankBalance(),
+									registeredName				: _me.getRegisteredName(),
+									doingBusinessAs				: _me.getDoingBusinessAs(),
+									description					: _me.getDescription(),
+									formOfBusiness				: _me.getFormOfBusiness(),
+									inceptionDate				:  _me.getInceptionDate(),
+									businessTaxNumber			: _me.getBusinessTaxNumber(),
+									sicCode						: _me.getSicCode(),
+									naiscCode					: _me.getNaiscCode(),
+									addressId					: _address.getId(),
+									contactName					: _me.getContactName()
 
 								},
 								function(err, recordset) {

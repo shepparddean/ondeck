@@ -16,8 +16,15 @@ function SBApplication() {
 	var applicationId;
 
 	this.getId = function() {
+
 		return applicationId;
 	},
+
+	this.setId = function(val) {
+
+		applicationId = val;
+	},
+
 
 
 	this.create = function(req, res, callback) {
@@ -46,15 +53,15 @@ function SBApplication() {
 					} else {
 
 						ps.execute({
-								requestedLoanAmount	: req.body.desiredLoanAmount,
-								requestedLoanTerm	: req.body.loanTerm,
-								businessLoanPurpose	: req.body.businessLoanPurpose
+								requestedLoanAmount: req.body.desiredLoanAmount,
+								requestedLoanTerm: req.body.loanTerm,
+								businessLoanPurpose: req.body.businessLoanPurpose
 
 							},
 
 							/**
 							 * If there are no errors, proceed with creating the business applicant;
-							 * 
+							 *
 							 * @param  {[type]} err       [description]
 							 * @param  {[type]} recordset [description]
 							 * @return {[type]}           [description]
@@ -93,7 +100,7 @@ function SBApplication() {
 												objectData._callback(null, applicationId);
 
 											});
-											
+
 
 										});
 
@@ -123,6 +130,72 @@ function SBApplication() {
 	 */
 	this.destroy = function(data) {
 		console.log('You want to destroy');
+	},
+
+
+	/**
+	 * Return the Owners on this application;
+	 */
+	this.getOwners = function(callback) {
+
+		var _me = this;
+		console.log('callback is ', callback, '\n app id is ', _me.getId());
+		var connection = new sql.Connection(database, function(err) {
+
+			var request = new sql.Request(connection);
+
+			request.query("select	o.id, o.SBApplicationId, o.firstName, o.lastName, o.email, " +
+				" o.ownershipPercentage, o.creditScore,	o.dateOfBirth, o.annualIncome, " +
+				" o.addressId, o.phoneNumber,o.cellNumber,o.socialInsuranceNumber, " +
+				" a.line1, a.line2,a.city, a.provinceCode, a.postalCode " +
+				" from	owner o, address a " +
+				" where	o.SBApplicationId = " + _me.getId() +
+				" and a.id = o.addressId ",
+
+				function(err, recordset) {
+
+					if (err) {
+						console.log('Error : ', err);
+					} else {
+						console.log('found \n', recordset.length, ' records ');
+					}
+
+
+					connection.close();
+					callback(err, recordset);
+				});
+		});
+
+
+	},
+
+	this.getApplications = function(callback) {
+
+		var _me = this;
+	
+		var connection = new sql.Connection(database, function(err) {
+
+			var request = new sql.Request(connection);
+
+			request.query("select  sb.*, ba.registeredName " +
+				" from	SBApplication sb, " +
+				"		BusinessApplicant ba " +
+				" where	ba.SBApplicationId = sb.id ",
+
+				function(err, recordset) {
+
+					if (err) {
+						console.log('Error : ', err);
+					} else {
+						console.log('found \n', recordset.length, ' records ');
+					}
+
+
+					connection.close();
+					callback(err, recordset);
+				});
+		});
+
 	}
 
 

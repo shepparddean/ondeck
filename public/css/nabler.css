@@ -114,3 +114,11 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+
+
+/*override the TrNgGrid */
+.tr-ng-title {
+  /*padding-top: 0 !important;*/
+  /*font-size: 12px !important;*/
+ }
